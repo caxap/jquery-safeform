@@ -110,4 +110,4 @@ $('#example').safeform({
 Authors
 -------
  
- - Maxim Kamenkov ([@caxap](https://twitter.com/caxap))
+ - Maxim Kamenkov ([@caxap](https://github.com/caxap))
