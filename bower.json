@@ -7,6 +7,21 @@
   ],
   "description": "jQuery plugin to prevent multiple form submission.",
   "main": "jquery.safeform.js",
+  "ignore": [
+    "spec",
+    ".bowerrc",
+    ".gitignore",
+    ".jshintignore",
+    "bower.json",
+    "gruntfile.json",
+    "package.json",
+    "README.md",
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
   "keywords": [
     "plugin",
     "prevent",
