@@ -1,21 +1,21 @@
 <html>
 <head>
 	<title>jquery-safeform</title>
-	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js" ></script>
-	<script type="text/javascript" src="jquery.safeform.js" ></script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="jquery.safeform.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
 
 			$('#testsafe').safeform({
 				timeout: 3000,	// auto refresh after 3 sec.
-				submit: function() {
+				submit: function(e) {
 					var name = $('#firsname').val();
 					if (name !== '') {
 						$('#firsname').val('');
-						$('#testresults').append($('<div>' + name + '</div>'));
+						$('#testresults').append($('<div><b>' + name + '</b> <small>submitted at ' + e.timeStamp + '</small></div>'));
 
 						// emulate waiting...
-						for (var i=0; i < 100000; i++) {
+						for (var i=0; i < 500000; i++) {
 							$.isFunction($('#testresults'));
 						}
 					}
@@ -23,7 +23,7 @@
 					// manual complete, reenable form ASAP
 					//$('#testsafe').safeform('complete');
 
-					return false;
+					return false; // revent real submit
 				}
 			});
 		});
@@ -32,8 +32,8 @@
 <body>
 	<form id="testsafe" action="/">
 	<div>
-		<input id="firsname" name="firsname" type="text" />
-		<input type="submit" onclick="javascript: $('#testsafe').submit(); return false;"/>
+		<input id="firsname" name="firsname" type="text">
+		<input type="submit" onclick="javascript: $('#testsafe').submit();">
 	</div>
 	</form>
 	<div id="testresults"></div>

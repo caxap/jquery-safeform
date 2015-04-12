@@ -36,16 +36,18 @@
 			return o.timeout && now - this.submittedAt > o.timeout;
 		},
 
-		prevenDoubleSubmit: function() {
+		prevenDoubleSubmit: function(event) {
 			var o = this.options;
 			if (this.disabled && !this.isAutoRefreshed()) return false;
 			this.disable();
 			this.submittedAt = getTime();
-			return $.isFunction(o.submit) ? o.submit.call(this.$element): true;
+			if ($.isFunction(o.submit)) {
+        		return o.submit.call(this.$element, event);
+      		}
 		}
 	};
 
-	$.fn.safeform = function (option) {
+	$.fn.safeform = function(option) {
 		return this.each(function () {
 			var $this = $(this),
 				data = $this.data('safeform'),
