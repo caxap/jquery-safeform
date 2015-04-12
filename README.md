@@ -1,11 +1,10 @@
 jquery-safeform
 ===============
 
-jQuery plugin to preven multiple form submission. Originally the plugin was developed for http://goodwillion.com
+jQuery plugin to preven multiple form submission.
 
 Using jquery.safeform.js
 ----------------------------
-The plugin was developed following [bootstrap js philosophy](https://github.com/twitter/bootstrap/blob/master/js/README.md).
 To enable the safeform via javascript:
 ```javascript
 $('#example').safeform(options)
@@ -29,7 +28,10 @@ Attaches a safeform plugin to an element collection.
 ```javascript
 $('#example').safeform({
     timeout: 2000,
-    submit: function() { return false; }
+    submit: function(event) { 
+        var $form = $(this);
+        return false;
+    }
 })
 ```
 #### .safeform('complete')
