@@ -3,6 +3,12 @@ jquery-safeform
 
 jQuery plugin to preven multiple form submission.
 
+Installation
+-------
+```
+bower install jq-safeform --save-dev
+```
+
 Using jquery.safeform.js
 ----------------------------
 To enable the safeform via javascript:
